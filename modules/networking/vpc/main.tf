@@ -7,7 +7,7 @@ module "vpc" {
 }
 
 module "eks" {
-  source                       = "git@github.com:gruntwork-io/terraform-aws-eks.git//modules/eks-cluster-control-plane?ref=v0.47.2"
+  source                       = "git@github.com:gruntwork-io/terraform-aws-eks.git//modules/eks-cluster-control-plane?ref=v0.47.3"
   cluster_name                 = "demo-20220127"
   endpoint_public_access_cidrs = ["0.0.0.0/0"]
   vpc_control_plane_subnet_ids = module.vpc.private_app_subnet_cidr_blocks
@@ -15,7 +15,7 @@ module "eks" {
 }
 
 module "rds" {
-  source         = "git@github.com:gruntwork-io/terraform-aws-data-storage.git//modules/rds?ref=v0.22.4"
+  source         = "git@github.com:gruntwork-io/terraform-aws-data-storage.git//modules/rds?ref=v0.22.5"
   engine         = "aurora-postgresql"
   engine_version = "11.9"
   instance_type  = "t3.large"
